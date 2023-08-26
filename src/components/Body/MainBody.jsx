@@ -25,9 +25,9 @@ const MainBody = () => {
 
     return (
 
-        <div className=' flex justify-center items-center gap-10 mt-10 flex-col p-4'>
+        <div className=' flex justify-center items-center gap-10 mt-10 flex-col px-4'>
 
-            <form className="flex justify-center items-center gap-3 my-10" action=''>
+            <form className="flex justify-center items-center gap-2 my-10 " action=''>
 
                 <SearchInput
                     placeholder="Enter Username"
@@ -39,8 +39,11 @@ const MainBody = () => {
                     btnIcon={<BiSearch />}
                     btnText='Search'
                     handleOnClick={handleOnClick} />
+
             </form>
+            
             {inputError && <span className='text-red-500 font-semibold'>{inputError}</span>}
+
             {loading && <LoadingSpinner />}
 
             {error &&
@@ -48,12 +51,9 @@ const MainBody = () => {
                     An error occurred while fetching  data:
                 </div>
             }
-            {
-                data.length !== 0 && <Cards userData={data} />
-            }
-            {userInput.length === 0 &&
-                <BiLogoGithub
-                    className={`text-9xl font-semibold  my-10 text-indigo-600 ${inputError && 'text-red-500'}`} />
+            {data.length !== 0 && <Cards userData={data} />}
+
+            {userInput.length === 0 && <BiLogoGithub className={`text-9xl font-semibold  my-10 text-indigo-600 ${inputError && 'text-red-500'}`} />
             }
         </div >
     )
