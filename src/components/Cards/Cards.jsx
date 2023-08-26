@@ -1,6 +1,6 @@
 
 const Cards = ({ userData }) => {
-  
+
     return (
 
         <>
@@ -39,11 +39,10 @@ const Cards = ({ userData }) => {
 
                         <small className="text-xs font-light text-primary dark:text-gray-400 flex flex-col justify-center items-center">
                             <span className="font-semibold text-indigo-600">Created At</span>
-                            {new Date(userData.created_at).toLocaleDateString('en-GB', {
-                                year: 'numeric',
-                                month: '2-digit',
-                                day: '2-digit'
-                            })}
+                            {`${new Date(userData.created_at).getFullYear()}-${(new Date(userData.created_at).getMonth() + 1)
+                                    .toString().padStart(2, '0')}-${new Date(userData.created_at)
+                                        .getDate().toString().padStart(2, '0')
+                                }`}
                         </small>
                     </div>
                 </div>
